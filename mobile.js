@@ -2,9 +2,9 @@ let card = [];
 
 function generateBingoCard() {
     const bingoCard = document.getElementById('bingo-card');
-    const bingoStatus = document.getElementById('bingo-status');
-    bingoCard.innerHTML = ''; // Clear any existing card
-    bingoStatus.innerHTML = ''; // Clear any existing status
+    const bingoStatus = document.getElementById("bingo-status");
+    bingoCard.innerHTML = ""; // clear any existing card
+    bingoStatus.innerHTML = ""; // clear any existing status
 
     const words = [
         "Absolute Ignoranz darüber, dass niemand sie mag",
@@ -34,7 +34,7 @@ function generateBingoCard() {
         "UnSoLiDaRisCh"
     ];
 
-    // Shuffle the words array
+    // Shuffle the words Array
     for (let i = words.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [words[i], words[j]] = [words[j], words[i]];
@@ -45,11 +45,15 @@ function generateBingoCard() {
 
     // Create 5x5 bingo card
     for (let i = 0; i < 25; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.textContent = words[i];
-        cell.addEventListener('click', () => markCell(i));
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        const span = document.createElement("span");
+        span.textContent = words[i];
+        cell.appendChild(span);
+        cell.addEventListener("click", () => markCell(i));
         bingoCard.appendChild(cell);
+
+        adjustFontSize(span);
     }
 }
 
@@ -57,12 +61,14 @@ function markCell(index) {
     const row = Math.floor(index / 5);
     const col = index % 5;
 
-    card[row][col] = !card[row][col]; // Toggle the cell's marked state
-    const cell = document.querySelectorAll('.cell')[index];
-    cell.classList.toggle('marked');
+    card[row][col] = !card[row][col]; // toggle the cell's marked state
+    const cell = document.querySelectorAll(".cell")[index];
+    cell.classList.toggle("marked");
 
-    if (checkBingo()) {
-        document.getElementById('bingo-status').textContent = 'BINGO!';
+    if(checkBingo()) {
+        document.getElementById("bingo-status").textContent = "BINGO!";
+    } else {
+        document.getElementById("bingo-status").textContent = "";
     }
 }
 
@@ -72,7 +78,7 @@ function checkBingo() {
         if (card[row].every(cell => cell)) return true;
     }
 
-    // Check columns
+    // Check columns 
     for (let col = 0; col < 5; col++) {
         if (card.every(row => row[col])) return true;
     }
@@ -82,4 +88,21 @@ function checkBingo() {
     if (card.every((row, idx) => row[4 - idx])) return true;
 
     return false;
+}
+
+function adjustFontSize(element) {
+    const textLength = element.textContent.length;
+    let fontSize;
+
+    if (textLength <= 5) {
+        fontSize = "4vw";
+    } else if (textLength <= 10) {
+        fontSize = "3.5vw";
+    } else if (textLength <= 20) {
+        fontSize = "3vw";
+    } else {
+        fontSize = "2.5vw";
+    }
+
+    element.style.fontSize = fontSize;
 }
