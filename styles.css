@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    transform: rotate(90deg);
+    width: 100%;
+    max-width: 600px;
+}
+
+.bingo-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.cell {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    display: flex;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    overflow: hidden;
+    word-wrap: break-word;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* .cell span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw; /* Flexible font size */
+    /* padding: 5px;
+} */ */
+
+.cell span {
+    max-height: 100%;
+    overflow: hidden;
+    font-size: 4vw;
+}
+
+.cell.marked {
+    background-color: #ffcccb;
+}
+
+#bingo-status {
+    margin-top: 20px;
+    font-size: 5vw; /* Flexible font size */
+    color: green;
+}
+
+/* Media Queries for Lager Screens */
+@media (min-width: 600px) {
+    .cell span {
+        font-size: 16px;
+    }
+
+    #bingo-status {
+        font-size: 20px;
+    }
+}
