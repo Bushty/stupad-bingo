@@ -83,3 +83,28 @@ function checkBingo() {
 
     return false;
 }
+
+function downloadBingoCard() {
+    const bingoCardVisible = document.getElementById('bingo-card');
+    const bingoCardHidden = document.getElementById('bingo-card-hidden');
+
+    // Copy the content of the visible Bingo card to the hidden div
+    bingoCardHidden.innerHTML = bingoCardVisible.innerHTML;
+    bingoCardHidden.style.width = bingoCardVisible.offsetWidth + 'px';
+    bingoCardHidden.style.height = bingoCardVisible.offsetHeight + 'px';
+
+    // Convert hidden div content to an image
+    domtoimage.toPng(bingoCardHidden)
+        .then(function (dataUrl) {
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = dataUrl;
+            link.download = 'bingo_card.png';
+
+            // Trigger download
+            link.click();
+        })
+        .catch(function (error) {
+            console.error('Error generating Bingo card image:', error);
+        });
+}
