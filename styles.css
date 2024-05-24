@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #f0f0f0;
+    width: 100%;
 }
 
 .container {
@@ -33,7 +34,10 @@ body {
 }
 
 .cell.marked {
-    background-color: #ffcccb;
+    background-color: #ffcccb; /* Background w/o image */
+    background-image: linear-gradient(to right, rgba(245, 245, 245, 0.8), rgba(245, 245, 245, 0.8)), url(sPoNgEbOb.png);
+    background-size: cover;
+    background-position: center;
 }
 
 #bingo-status {
