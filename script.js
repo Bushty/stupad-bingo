@@ -47,6 +47,7 @@ function generateBingoCard() {
     for (let i = 0; i < 25; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
+        cell.classList.add("noselect")
         cell.textContent = words[i];
         cell.addEventListener('click', () => markCell(i));
         bingoCard.appendChild(cell);
@@ -63,6 +64,8 @@ function markCell(index) {
 
     if (checkBingo()) {
         document.getElementById('bingo-status').textContent = 'BINGO!';
+    } else {
+        document.getElementById('bingo-status').textContent = '';
     }
 }
 
@@ -109,20 +112,21 @@ function downloadBingoCard() {
         });
 }
 
+
+
+
+
+
+// On mobile: zoom out to display everything on screen
 window.onload = function() {
     if (isMobileDevice() && window.innerWidth <= 600) {
         zoomOut();
     }
 }
 
-
-
-
-// On mobile: zoom out to display everything on screen
 function isMobileDevice() {
     return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 }
-
 
 let isZoomedOut = false;
 
