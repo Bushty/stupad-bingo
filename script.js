@@ -25,7 +25,7 @@ function generateBingoCard() {
         "Lutz unbricht weiblich gelesene Person",
         "Neu rekrutierte Person sagt auch mal was", 
         "Projektwoche",
-        "pReKäRe LaGe DeR sTuDiErEnDeN", 
+        "pReKäRe LaGe dEr sTuDieRenDeN", 
         "SDGs", 
         "So viel Text auf Folie/Plakat, dass nichts lesbar ist", 
         "vErEiNzElUnG", 
