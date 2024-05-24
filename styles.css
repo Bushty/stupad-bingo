@@ -14,7 +14,7 @@ body {
 .bingo-card {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
+    /* gap: 5px; */
     margin-top: 20px;
 }
 
@@ -50,7 +50,5 @@ body {
 @media only screen and (max-width: 600px) {
     #bingo-status {
         margin-top: 1px;
-        font-size: 20px;
-        color: green;
     }
 }
