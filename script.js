@@ -108,3 +108,29 @@ function downloadBingoCard() {
             console.error('Error generating Bingo card image:', error);
         });
 }
+
+window.onload = function() {
+    if (isMobileDevice() && window.innerWidth <= 600) {
+        zoomOut();
+    }
+}
+
+function isMobileDevice() {
+    return (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+}
+
+
+let isZoomedOut = false;
+
+function zoomOut() {
+    const zoomButton = document.getElementById("zoom-button");
+    const bingoCardContainer = document.getElementById('bingo-card');
+    if (!isZoomedOut) {
+        bingoCardContainer.style.transform = 'scale(0.5)'; // Zoom out
+        zoomButton.textContent = "Zoom In";
+    } else {
+        bingoCardContainer.style.transform = 'scale(1)'; // Return to original size
+        zoomButton.textContent = "Zoom Out";
+    }
+    isZoomedOut = !isZoomedOut; // Toggle the zoom state
+}
