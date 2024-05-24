@@ -134,7 +134,7 @@ function zoomOut() {
     const zoomButton = document.getElementById("zoom-button");
     const bingoCardContainer = document.getElementById('bingo-card');
     if (!isZoomedOut) {
-        bingoCardContainer.style.transform = 'scale(0.5)'; // Zoom out
+        bingoCardContainer.style.transform = 'scale(0.6)'; // Zoom out
         zoomButton.textContent = "Zoom In";
     } else {
         bingoCardContainer.style.transform = 'scale(1)'; // Return to original size
