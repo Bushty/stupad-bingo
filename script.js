@@ -16,7 +16,7 @@ function generateBingoCard() {
         "Die Hochschule ist der Ort, um die Gesellschaft zu verändern",
         "dRiTtMiTteL", 
         "Enteignen!",
-        "Haupt- und Nebenwiederspruch (Kapitalismus überwinden -> alles gut)", 
+        "Haupt- und Neben-widerspruch (Kapitalismus überwinden -> alles gut)", 
         "Ja, ich bin auch bei Blue Engineering dabei...",
         "Klimathema wird angesprochen, aber nicht verstanden",
         "Konkurrenz = schlecht",
